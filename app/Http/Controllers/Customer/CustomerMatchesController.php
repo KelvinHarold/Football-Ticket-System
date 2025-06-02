@@ -12,4 +12,8 @@ class CustomerMatchesController extends Controller
         $matches = Matches::all();
         return view('matches.customermatches', compact('matches'));
     }
+
+    public function home(){
+        return view('customer.index');
+    }   
 }

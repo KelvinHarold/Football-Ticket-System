@@ -1,8 +1,11 @@
 <x-customer-layout>
-    <div class="max-w-md mx-auto mt-10 bg-white p-8 rounded-xl shadow-md">
+    <div 
+        id="ticket-card" 
+        class="max-w-md mx-auto mt-10 bg-white p-8 rounded-xl shadow-md opacity-0 translate-y-6 transition-all duration-700 ease-out"
+    >
         <h2 class="text-2xl font-bold text-center text-blue-700 mb-6">
              @include('components.success-message')
-            SantiagoBernabeu - Book Your Ticket
+            SantiagoBernabeu 
         </h2>
         <form action="{{ route('ticket.store') }}" method="POST" class="space-y-4">
             @csrf
@@ -43,6 +46,12 @@
     </div>
 
     <script>
+        // On page load, remove the initial hidden classes so transition triggers
+        window.addEventListener('DOMContentLoaded', () => {
+            const card = document.getElementById('ticket-card');
+            card.classList.remove('opacity-0', 'translate-y-6');
+        });
+
         document.getElementById('ticket_class').addEventListener('change', function () {
             const classId = this.value;
             const costInput = document.getElementById('cost');

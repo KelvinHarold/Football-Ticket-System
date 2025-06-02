@@ -94,4 +94,12 @@ public function storeClass(Request $request)
     return back()->with('success', 'Ticket class added successfully.');
 }
 
+public function destroy($id)
+{
+    $ticket = TicketPrice::findOrFail($id); // adjust model name if needed
+    $ticket->delete();
+
+    return redirect()->route('admin.tickets.index')->with('deleted', 'Ticket price deleted successfully.');
+}
+
 }

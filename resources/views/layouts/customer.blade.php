@@ -20,35 +20,19 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://unpkg.com/alpinejs" defer></script>
+
         @include('layouts.navigation')
-      
-        <style>
-            /* Custom Colors */
-            .icon-colored {
-                color: #FE6700;
-            }
 
-            .hover-link {
-                transition: background-color 0.3s ease, color 0.3s ease;
-            }
-
-            .hover-link:hover {
-                background-color:  rgb(58, 137, 240);
-                color: #FEFEFE;
-            }
-
-            .dropdown-link:hover {
-                background-color:  rgb(58, 137, 240);
-                color: #FEFEFE;
-            }
-        </style>
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
             <div class="flex-col w-full md:flex md:flex-row md:min-h-screen">
-                <div @click.away="open = false" class="flex flex-col flex-shrink-0 w-full text-gray-700 bg-white md:w-64 dark-mode:text-gray-200 dark-mode:bg-gray-800" x-data="{ open: false }">
+                <div @click.away="open = false"
+     class="flex flex-col flex-shrink-0 w-full text-white bg-[#808080] md:w-64"
+     x-data="{ open: false }">
                     <div class="flex flex-row items-center justify-between flex-shrink-0 px-8 py-4">
-                        <a href="#" class="text-lg font-semibold tracking-widest text-blue-400 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">Customer</a>
+                        <a href="#" class="text-lg font-semibold tracking-widest text-white uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">Customer</a>
                         <button class="rounded-lg md:hidden focus:outline-none focus:shadow-outline" @click="open = !open">
                             <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
                                 <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
@@ -58,9 +42,23 @@
                     </div>
                     @include('layouts.navbar')
                 </div>
-                <div class="flex w-full bg-slate-50">
-                {{ $slot }}    
-                </div> 
+      <div class="relative w-full">
+    <!-- Background Image -->
+    <div class="absolute inset-0 bg-cover bg-center z-0" 
+         style="background-image: url('{{ asset('images/BB.jpg') }}');">
+    </div>
+
+    <!-- Black Overlay with opacity -->
+    <div class="absolute inset-0 bg-black opacity-50 z-10"></div>
+
+    <!-- Slot Content -->
+    <div class="relative z-20">
+        {{ $slot }}
+    </div>
+</div>
+
+</div>
+
             </div>
             @include('layouts.footer')
     </body>

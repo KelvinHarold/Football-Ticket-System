@@ -1,3 +1,3 @@
 <x-customer-layout>
-<h1>Hello</h1>
+    <img src="{{ asset('images/BB.jpg') }}" alt="Full Screen Image" style="width: 100%; height: 100vh; object-fit: cover;">
 </x-customer-layout>

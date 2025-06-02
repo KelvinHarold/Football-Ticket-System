@@ -4,10 +4,10 @@
             <i class='bx bx-user-plus text-3xl mr-3 text-[#FE6700]'></i>
             <h2 class="text-3xl font-bold">Register New User</h2>
         </div>
-        
+
         <form action="{{ route('admin.users.store') }}" method="POST" class="space-y-6">
             @csrf
-            
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- Name Field -->
                 <div class="mb-4">
@@ -46,17 +46,17 @@
                 <!-- Phone Field -->
                 <div class="mb-4">
                     <label for="phone" class="block text-sm font-medium text-gray-700 mb-2 flex items-center">
-                        <i class='bx bx-lock-alt mr-2 text-[#FE6700]'></i> Phone
+                        <i class='bx bx-phone mr-2 text-[#FE6700]'></i> Phone
                     </label>
                     <div class="relative">
                         <input 
-                            type="phone" 
+                            type="tel" 
                             name="phone" 
                             id="phone" 
                             class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-300 ease-in-out" 
                             placeholder="+255"
                             required>
-                        <i class='bx bx-lock-alt absolute left-3 top-3.5 text-gray-400'></i>
+                        <i class='bx bx-phone absolute left-3 top-3.5 text-gray-400'></i>
                     </div>
                 </div>
 

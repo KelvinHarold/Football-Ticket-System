@@ -67,3 +67,18 @@
         });
     </script>
 @endif
+
+
+@if (session('sent'))
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            Swal.fire({
+                icon: 'success',
+                title: 'Suggestion sent successfully',
+                text: '{{ session('sent') }}',
+                timer: 2000,
+                showConfirmButton: false
+            });
+        });
+    </script>
+@endif

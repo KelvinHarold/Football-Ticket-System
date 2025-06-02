@@ -1,5 +1,20 @@
+
 <x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
+    <div class="min-h-screen flex flex-col justify-center items-center bg-gray-50 dark:bg-gray-900 px-4 sm:px-6 lg:px-8">
+        <!-- Normal size card -->
+        <div class="max-w-md w-full bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg ring-1 ring-gray-900/5">
+            <!-- Logo + Title inside card -->
+           <div class="flex flex-col items-center mb-6">
+    <img src="{{ asset('images/picture.jpg') }}" alt="Logo" class="h-16 w-16 rounded-full border-2  shadow-md object-cover" />
+    <h2 class="mt-2 text-xl font-semibold">
+        <span class="text-gray-900 dark:text-white">Santiago</span><span class="text-indigo-600">Bernabeu</span>
+    </h2>
+</div>
+
+
+            <!-- Session Status -->
+            <x-auth-session-status class="mb-4" :status="session('status')" />
+            <form method="POST" action="{{ route('register') }}">
         @csrf
 
         <!-- Name -->
@@ -48,5 +63,7 @@
                 {{ __('Register') }}
             </x-primary-button>
         </div>
-    </form>
+    </form>           
+        </div>
+    </div>
 </x-guest-layout>

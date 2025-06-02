@@ -57,4 +57,26 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+
+     public function uploaded(Request $request)
+    {
+      
+        $request->validate([
+            'profile_picture' => 'required|image|max:2048',
+        ]);
+
+          $user = Auth::user();
+
+        $path = $request->file('profile_picture')->store('profile_pictures', 'public');
+
+        // // Optionally: delete old picture
+        // if ($user->profile_picture) {
+      
+
+        $user->profile_picture = $path;
+        $user->save();
+        return redirect()->route('profile.edit')->with('updated', 'Profile picture updated!');
+    }
+
+
 }

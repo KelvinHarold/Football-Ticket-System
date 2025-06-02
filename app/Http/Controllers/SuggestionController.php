@@ -29,7 +29,7 @@ class SuggestionController extends Controller
         ]);
 
 
-        return redirect()->back()->with('uploaded', 'Matches Uploaded Successfully');
+        return redirect()->back()->with('sent', 'Suggestion Posted Successfully');
     }
 
     public function adminsuggestions()
